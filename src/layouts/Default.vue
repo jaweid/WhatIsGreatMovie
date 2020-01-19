@@ -3,7 +3,7 @@
     <q-header elevated>
       <q-toolbar class="bg-white text-black">
         <q-avatar>
-          <i class="iconfont icon-dianying logo-icon"></i>
+          <i class="iconfont icon-dianying icon-logo"></i>
         </q-avatar>
 
         <!-- <q-toolbar-title> -->
@@ -20,7 +20,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-page-container>
+    <q-page-container style="min-width:1200px;margin:auto">
       <router-view />
     </q-page-container>
   </q-layout>
