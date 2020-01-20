@@ -2,147 +2,157 @@
   <q-page>
 
     <div class="mod-bg mod-slide">
-      <div class="title text-h5">每周推荐</div>
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="(item, index) in homeData" :key="index">
-            <img :src="item.imgUrl" />
+      <div class="section-inner">
+        <div class="title text-h5">每周推荐</div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(item, index) in homeData" :key="index">
+              <img :src="item.imgUrl" />
+            </div>
           </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
       </div>
     </div>
 
     <!-- 影单推荐 -->
     <div class="mod-bg mod-slide">
-      <div class="title text-h5">影单推荐</div>
-      <div class="row q-gutter-md" style="padding:0 60px">
-        <div class="col" v-for="(item, index) in collectionsList" :key="index">
-          <q-card flat bordered class="collection-card">
-            <q-img class="img" :src="item.imgUrl" style="height:250px">
-              <div class="absolute-bottom text-subtitle2 text-center">
-                {{item.title}}
-              </div>
-            </q-img>
-            <i class="mod_cover__mask"></i>
-          </q-card>
+      <div class="section-inner">
+
+        <div class="title text-h5">影单推荐</div>
+        <div class="row q-gutter-md" style="padding:0 60px">
+          <div class="col" v-for="(item, index) in collectionsList" :key="index">
+            <q-card flat bordered class="collection-card">
+              <q-img class="img" :src="item.imgUrl" style="height:250px">
+                <div class="absolute-bottom text-subtitle2 text-center">
+                  {{item.title}}
+                </div>
+              </q-img>
+              <i class="mod_cover__mask"></i>
+            </q-card>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- 影奖榜 -->
     <div class="mod-bg mod-slide">
+      <div class="section-inner">
 
-      <div class="title text-h5">影奖榜</div>
-      <div class="list-country">
-        <span @click="changeListCountry(item.value)" class="text-subtitle1"
-          :class="currentListCountry===item.value?'text-purple-14':null" v-for="(item, index) in listCountry"
-          :key="index">{{item.label}}</span>
-      </div>
-      <div class="list-card-row">
-        <div class="awards-card" v-for="(item, index) in listData" :key="index">
-          <q-card flat bordered class="text-white" v-bind:style="{'background-color':item.bgColor}">
-            <q-card-section>
-              <div class="text-h5 ">{{item.title}}</div>
-            </q-card-section>
+        <div class="title text-h5">影奖榜</div>
+        <div class="list-country">
+          <span @click="changeListCountry(item.value)" class="text-subtitle1"
+            :class="currentListCountry===item.value?'text-purple-14':null" v-for="(item, index) in listCountry"
+            :key="index">{{item.label}}</span>
+        </div>
+        <div class="list-card-row">
+          <div class="awards-card" v-for="(item, index) in listData" :key="index">
+            <q-card flat bordered class="text-white" v-bind:style="{'background-color':item.bgColor}">
+              <q-card-section>
+                <div class="text-h5 ">{{item.title}}</div>
+              </q-card-section>
 
-            <q-card-section class="text-caption ">
-              {{item.desc}}
-            </q-card-section>
+              <q-card-section class="text-caption ">
+                {{item.desc}}
+              </q-card-section>
 
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-avatar rounded text-color="white">
-                  <img src="http://img31.mtime.cn/pi/2014/03/07/093949.17156161_220X220.jpg">
-                </q-avatar>
-              </q-item-section>
-              <q-item-section>《霸王别姬》</q-item-section>
-            </q-item>
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-avatar rounded text-color="white">
+                    <img src="http://img31.mtime.cn/pi/2014/03/07/093949.17156161_220X220.jpg">
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section>《霸王别姬》</q-item-section>
+              </q-item>
 
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-avatar rounded text-color="white">
-                  <img src="http://img31.mtime.cn/pi/2014/03/06/092807.29533181_220X220.jpg">
-                </q-avatar>
-              </q-item-section>
-              <q-item-section>《英雄本色》</q-item-section>
-            </q-item>
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-avatar rounded text-color="white">
+                    <img src="http://img31.mtime.cn/pi/2014/03/06/092807.29533181_220X220.jpg">
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section>《英雄本色》</q-item-section>
+              </q-item>
 
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-avatar rounded text-color="white">
-                  <img src="http://img31.mtime.cn/mg/2015/01/20/154028.66013953.jpg">
-                </q-avatar>
-              </q-item-section>
-              <q-item-section>《甜蜜蜜》</q-item-section>
-            </q-item>
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-avatar rounded text-color="white">
+                    <img src="http://img31.mtime.cn/mg/2015/01/20/154028.66013953.jpg">
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section>《甜蜜蜜》</q-item-section>
+              </q-item>
 
-            <q-card-actions>
-              <q-btn flat label="更多获奖影片 >" />
-            </q-card-actions>
+              <q-card-actions>
+                <q-btn flat label="更多获奖影片 >" />
+              </q-card-actions>
 
-          </q-card>
+            </q-card>
 
+          </div>
         </div>
       </div>
     </div>
 
     <!-- 评分排行 -->
     <div class="mod-bg mod-slide">
-      <h5 class="title text-h5">评分排行</h5>
+      <div class="section-inner">
 
-      <div class="list-country">
-        <span @click="currentPointSites=item.value" class="text-subtitle1"
-          :class="currentPointSites===item.value?'text-purple-14':null" v-for="(item, index) in pointsSite"
-          :key="index">{{item.label}}</span>
+        <h5 class="title text-h5">评分排行</h5>
 
-        <q-btn class="more" flat color="primary" label="更多 >" />
-      </div>
+        <div class="list-country">
+          <span @click="currentPointSites=item.value" class="text-subtitle1"
+            :class="currentPointSites===item.value?'text-purple-14':null" v-for="(item, index) in pointsSite"
+            :key="index">{{item.label}}</span>
 
-      <div class="row q-gutter-md " style="padding:0 60px">
-        <div class="col" v-for="(item, index) in pointsList.slice(0,5)" :key="index">
-          <q-card flat bordered class="collection-card points-card">
-            <q-img class="img" :src="item.imgUrl" style="height:224px">
-              <i class="mod_cover__mask"></i>
-            </q-img>
+          <q-btn class="more" flat color="primary" label="更多 >" />
+        </div>
 
-            <q-card-section>
-              <div class="text-h6 q-mt-sm q-mb-xs">{{item.title}}</div>
-              <!-- <div class="text-subtitle1">
+        <div class="row q-gutter-md " style="padding:0 60px">
+          <div class="col" v-for="(item, index) in pointsList.slice(0,5)" :key="index">
+            <q-card flat bordered class="collection-card points-card">
+              <q-img class="img" :src="item.imgUrl" style="height:224px">
+                <i class="mod_cover__mask"></i>
+              </q-img>
+
+              <q-card-section>
+                <div class="text-h6 q-mt-sm q-mb-xs">{{item.title}}</div>
+                <!-- <div class="text-subtitle1">
                 {{item.point}}分
               </div> -->
-              <div class="text-caption text-grey">
-                导演：{{item.director}}
-              </div>
-            </q-card-section>
+                <div class="text-caption text-grey">
+                  导演：{{item.director}}
+                </div>
+              </q-card-section>
 
-          </q-card>
+            </q-card>
+          </div>
         </div>
-      </div>
 
-      <div class="row q-gutter-md " style="padding:0 60px;margin-top:20px">
-        <div class="col" v-for="(item, index) in pointsList.slice(5,10)" :key="index">
-          <q-card flat bordered class="collection-card points-card">
-            <q-img class="img" :src="item.imgUrl" style="height:250px">
-              <i class="mod_cover__mask"></i>
-            </q-img>
+        <div class="row q-gutter-md " style="padding:0 60px;margin-top:20px">
+          <div class="col" v-for="(item, index) in pointsList.slice(5,10)" :key="index">
+            <q-card flat bordered class="collection-card points-card">
+              <q-img class="img" :src="item.imgUrl" style="height:250px">
+                <i class="mod_cover__mask"></i>
+              </q-img>
 
-            <q-card-section>
-              <div class="text-h6 q-mt-sm q-mb-xs">{{item.title}}</div>
-              <!-- <div class="text-subtitle1">
+              <q-card-section>
+                <div class="text-h6 q-mt-sm q-mb-xs">{{item.title}}</div>
+                <!-- <div class="text-subtitle1">
                 {{item.point}}分
               </div> -->
-              <div class="text-caption text-grey">
-                导演：{{item.director}}
-              </div>
-            </q-card-section>
-          </q-card>
+                <div class="text-caption text-grey">
+                  导演：{{item.director}}
+                </div>
+              </q-card-section>
+            </q-card>
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </q-page>
 </template>
@@ -182,7 +192,7 @@ export default {
           bgColor: "#6E97B3",
           title: "中国电影华表奖",
           desc:
-            "中国电影华表奖简称华表奖，创办于1994年，由国家新闻出版广播电影电视总局主办，是中国（内地）电影界的政府奖，体现党和国家对电影事业的热情鼓励和大力扶持"
+            "中国电影华表奖简称华表奖，创办于1994年，由国家新闻出版广播电影电视总局主办，是中国（内地）电影界的政府奖，体现党和国家对电影事业的热情鼓励和大力扶持。"
         },
         {
           bgColor: "#6DBBB5",
@@ -222,7 +232,7 @@ export default {
           bgColor: "#F9AB02",
           title: "韩国电影大钟奖",
           desc:
-            "韩国电影大钟奖在韩国电影历史上具有最权威的地位，是为促进韩国电影不断发展而设立的韩国电影艺术大奖。，与韩国青龙电影奖和韩国百想艺术大赏并称韩国三大电影奖。"
+            "韩国电影大钟奖在韩国电影历史上具有最权威的地位，是为促进韩国电影不断发展而设立的韩国电影艺术大奖。韩国三大电影奖之一。"
         },
         {
           bgColor: "#5AB974",
@@ -535,6 +545,13 @@ export default {
 .mod-bg {
   background: url(http://y.gtimg.cn/mediastyle/yqq/img/bg_detail.jpg) 50% 0
     repeat-x;
+  padding: 0 20vw;
+}
+.section-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 .mod-slide {
   padding: 20px 0;
