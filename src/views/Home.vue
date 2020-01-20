@@ -98,24 +98,47 @@
         <span @click="currentPointSites=item.value" class="text-subtitle1"
           :class="currentPointSites===item.value?'text-purple-14':null" v-for="(item, index) in pointsSite"
           :key="index">{{item.label}}</span>
+
+        <q-btn class="more" flat color="primary" label="更多 >" />
       </div>
 
-      <div class="row  q-gutter-md " style="padding:0 60px">
-        <div style="col" v-for="(item, index) in pointsList" :key="index">
+      <div class="row q-gutter-md " style="padding:0 60px">
+        <div class="col" v-for="(item, index) in pointsList.slice(0,5)" :key="index">
+          <q-card flat bordered class="collection-card points-card">
+            <q-img class="img" :src="item.imgUrl" style="height:224px">
+              <i class="mod_cover__mask"></i>
+            </q-img>
+
+            <q-card-section>
+              <div class="text-h6 q-mt-sm q-mb-xs">{{item.title}}</div>
+              <!-- <div class="text-subtitle1">
+                {{item.point}}分
+              </div> -->
+              <div class="text-caption text-grey">
+                导演：{{item.director}}
+              </div>
+            </q-card-section>
+
+          </q-card>
+        </div>
+      </div>
+
+      <div class="row q-gutter-md " style="padding:0 60px;margin-top:20px">
+        <div class="col" v-for="(item, index) in pointsList.slice(5,10)" :key="index">
           <q-card flat bordered class="collection-card points-card">
             <q-img class="img" :src="item.imgUrl" style="height:250px">
               <i class="mod_cover__mask"></i>
             </q-img>
 
             <q-card-section>
-              <div class="text-h6">{{item.title}}</div>
-              <div class="text-subtitle2">by John Doe</div>
+              <div class="text-h6 q-mt-sm q-mb-xs">{{item.title}}</div>
+              <!-- <div class="text-subtitle1">
+                {{item.point}}分
+              </div> -->
+              <div class="text-caption text-grey">
+                导演：{{item.director}}
+              </div>
             </q-card-section>
-
-            <!-- <q-card-section class="q-pt-none">
-              {{ lorem }}
-            </q-card-section> -->
-
           </q-card>
         </div>
       </div>
@@ -258,7 +281,6 @@ export default {
           value: "japan"
         }
       ],
-
       pointsSite: [
         {
           label: "豆瓣",
@@ -277,7 +299,6 @@ export default {
           value: "imdb"
         }
       ],
-
       collectionsList: [
         {
           imgUrl:
@@ -305,60 +326,78 @@ export default {
           title: "追忆香港'四大恶人'李兆基"
         }
       ],
-
       pointsList: [
         {
           imgUrl:
             "http://img31.mtime.cn/pi/2014/03/06/094935.20275866_220X220.jpg",
-          title: "肖申克的救赎"
+          title: "肖申克的救赎",
+          point: 9.2,
+          director: "弗兰克·德拉邦特"
         },
         {
           imgUrl:
-            "http://img5.mtime.cn/pi/2019/08/08/104847.11059369_235X235.jpg",
-          title: "盗梦空间 "
+            "http://img21.mtime.cn/pi/2010/05/13/115058.54701524_220X220.jpg",
+          title: "盗梦空间 ",
+          point: 9.1,
+          director: " 克里斯托弗·诺兰"
         },
         {
           imgUrl:
-            "http://img5.mtime.cn/pi/2019/08/08/104847.11059369_235X235.jpg",
-          title: "阿甘正传 "
+            "http://img31.mtime.cn/pi/2014/03/07/094848.71679415_220X220.jpg",
+          title: "阿甘正传 ",
+          point: 9.1,
+          director: "罗伯特·泽米吉斯"
         },
         {
           imgUrl:
-            "http://img5.mtime.cn/pi/2019/08/08/104847.11059369_235X235.jpg",
-          title: "辛德勒的名单 "
+            "http://img31.mtime.cn/pi/2014/03/06/094436.10925961_220X220.jpg",
+          title: "辛德勒的名单 ",
+          point: 9.1,
+          director: "史蒂文·斯皮尔伯格"
         },
         {
           imgUrl:
-            "http://img5.mtime.cn/pi/2019/08/08/104847.11059369_235X235.jpg",
-          title: "海豚湾 "
+            "http://img21.mtime.cn/pi/2010/12/20/003714.41452094_220X220.jpg",
+          title: "海豚湾 ",
+          point: 9.1,
+          director: "路易·西霍尤斯"
+        },
+        {
+          imgUrl:
+            "http://img31.mtime.cn/pi/2014/03/01/131631.49260328_220X220.jpg",
+          title: "机器人总动员 WALL·E ",
+          point: 9.0,
+          director: "安德鲁·斯坦顿"
+        },
+        {
+          imgUrl:
+            "http://img31.mtime.cn/pi/2014/03/06/091842.99828746_220X220.jpg",
+          title: "这个杀手不太冷",
+          point: 9.0,
+          director: " 吕克·贝松"
+        },
+        {
+          imgUrl:
+            "http://img31.mtime.cn/pi/2014/03/01/141110.56563867_220X220.jpg",
+          title: "蝙蝠侠：黑暗骑士",
+          point: 9.0,
+          director: "克里斯托弗·诺兰"
+        },
+        {
+          imgUrl:
+            "http://img5.mtime.cn/pi/2017/03/16/175837.28903962_220X220.jpg",
+          title: "霸王别姬",
+          point: 9.0,
+          director: "陈凯歌"
+        },
+        {
+          imgUrl:
+            "http://img31.mtime.cn/pi/2014/03/07/082035.28707800_220X220.jpg",
+          title: "教父",
+          point: 9.0,
+          director: "弗朗西斯·福特·科波拉"
         }
-        // {
-        //   imgUrl:
-        //     "http://img5.mtime.cn/pi/2019/08/08/104847.11059369_235X235.jpg",
-        //   title: "2019年美国上映影片50佳 "
-        // },
-        // {
-        //   imgUrl:
-        //     "http://img5.mtime.cn/pi/2019/08/08/104847.11059369_235X235.jpg",
-        //   title: "2019年美国上映影片50佳 "
-        // },
-        // {
-        //   imgUrl:
-        //     "http://img5.mtime.cn/pi/2019/08/08/104847.11059369_235X235.jpg",
-        //   title: "2019年美国上映影片50佳 "
-        // },
-        // {
-        //   imgUrl:
-        //     "http://img5.mtime.cn/pi/2019/08/08/104847.11059369_235X235.jpg",
-        //   title: "2019年美国上映影片50佳 "
-        // },
-        // {
-        //   imgUrl:
-        //     "http://img5.mtime.cn/pi/2019/08/08/104847.11059369_235X235.jpg",
-        //   title: "2019年美国上映影片50佳 "
-        // }
       ],
-
       currentListCountry: "china",
       currentPointSites: "douban"
     };
@@ -441,13 +480,19 @@ export default {
 .list-country {
   padding-bottom: 40px;
   margin: 10px 0;
-  // width: 60vw;
+  position: relative;
   display: flex;
   justify-content: center;
-  cursor: pointer;
+  align-items: center;
   span {
+    cursor: pointer;
     width: 150px;
     text-align: center;
+  }
+  .more {
+    position: absolute;
+    right: 60px;
+    top: 0;
   }
 }
 .list-card-row {
