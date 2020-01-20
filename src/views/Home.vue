@@ -154,7 +154,7 @@
 <script>
 import Swiper from "swiper";
 import "swiper/css/swiper.min.css";
-
+import homeApi from "@/api/home";
 export default {
   components: {},
   name: "PageHome",
@@ -330,78 +330,7 @@ export default {
           title: "追忆香港'四大恶人'李兆基"
         }
       ],
-      pointsList: [
-        {
-          imgUrl:
-            "http://img31.mtime.cn/pi/2014/03/06/094935.20275866_220X220.jpg",
-          title: "肖申克的救赎",
-          point: 9.2,
-          director: "弗兰克·德拉邦特"
-        },
-        {
-          imgUrl:
-            "http://img21.mtime.cn/pi/2010/05/13/115058.54701524_220X220.jpg",
-          title: "盗梦空间 ",
-          point: 9.1,
-          director: " 克里斯托弗·诺兰"
-        },
-        {
-          imgUrl:
-            "http://img31.mtime.cn/pi/2014/03/07/094848.71679415_220X220.jpg",
-          title: "阿甘正传 ",
-          point: 9.1,
-          director: "罗伯特·泽米吉斯"
-        },
-        {
-          imgUrl:
-            "http://img31.mtime.cn/pi/2014/03/06/094436.10925961_220X220.jpg",
-          title: "辛德勒的名单 ",
-          point: 9.1,
-          director: "史蒂文·斯皮尔伯格"
-        },
-        {
-          imgUrl:
-            "http://img21.mtime.cn/pi/2010/12/20/003714.41452094_220X220.jpg",
-          title: "海豚湾 ",
-          point: 9.1,
-          director: "路易·西霍尤斯"
-        },
-        {
-          imgUrl:
-            "http://img31.mtime.cn/pi/2014/03/01/131631.49260328_220X220.jpg",
-          title: "机器人总动员",
-          point: 9.0,
-          director: "安德鲁·斯坦顿"
-        },
-        {
-          imgUrl:
-            "http://img31.mtime.cn/pi/2014/03/06/091842.99828746_220X220.jpg",
-          title: "这个杀手不太冷",
-          point: 9.0,
-          director: " 吕克·贝松"
-        },
-        {
-          imgUrl:
-            "http://img31.mtime.cn/pi/2014/03/01/141110.56563867_220X220.jpg",
-          title: "蝙蝠侠：黑暗骑士",
-          point: 9.0,
-          director: "克里斯托弗·诺兰"
-        },
-        {
-          imgUrl:
-            "http://img5.mtime.cn/pi/2017/03/16/175837.28903962_220X220.jpg",
-          title: "霸王别姬",
-          point: 9.0,
-          director: "陈凯歌"
-        },
-        {
-          imgUrl:
-            "http://img31.mtime.cn/pi/2014/03/07/082035.28707800_220X220.jpg",
-          title: "教父",
-          point: 9.0,
-          director: "弗朗西斯·福特·科波拉"
-        }
-      ],
+      pointsList: [],
       currentListCountry: "china",
       currentPointSites: "douban"
     };
@@ -422,14 +351,20 @@ export default {
         prevEl: ".swiper-button-prev"
       }
     });
-
     this.changeListCountry(this.currentListCountry);
+    this.getTopListData();
   },
 
   methods: {
     changeListCountry(value) {
       this.currentListCountry = value;
       this.listData = this[`${value}ListData`];
+    },
+
+    async getTopListData() {
+      let result = await homeApi.topList();
+      console.log(result);
+      this.pointsList = result.data;
     }
   }
 };

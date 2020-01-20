@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "axios": "^0.19.1",
     "core-js": "^2.6.5",
     "quasar": "^1.0.5",
     "swiper": "^5.3.0",
