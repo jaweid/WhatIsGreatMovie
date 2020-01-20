@@ -120,9 +120,6 @@
 
               <q-card-section>
                 <div class="text-h6 q-mt-sm q-mb-xs">{{item.title}}</div>
-                <!-- <div class="text-subtitle1">
-                {{item.point}}分
-              </div> -->
                 <div class="text-caption text-grey">
                   导演：{{item.director}}
                 </div>
@@ -141,9 +138,6 @@
 
               <q-card-section>
                 <div class="text-h6 q-mt-sm q-mb-xs">{{item.title}}</div>
-                <!-- <div class="text-subtitle1">
-                {{item.point}}分
-              </div> -->
                 <div class="text-caption text-grey">
                   导演：{{item.director}}
                 </div>
@@ -375,7 +369,7 @@ export default {
         {
           imgUrl:
             "http://img31.mtime.cn/pi/2014/03/01/131631.49260328_220X220.jpg",
-          title: "机器人总动员 WALL·E ",
+          title: "机器人总动员",
           point: 9.0,
           director: "安德鲁·斯坦顿"
         },
